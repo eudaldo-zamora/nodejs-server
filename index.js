@@ -5,9 +5,7 @@ const app = express();
 
 dbConnection();
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-})
+app.use('/api/persons', require('./routes/person'));
 
 app.listen(4000, () => {
     console.log("Server running ...");
