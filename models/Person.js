@@ -17,6 +17,6 @@ const PersonSchema = mongoose.Schema({
         type: Date,
         default: Date.now()
     },
-});
+}, {collection: 'persons'});
 
 module.exports = mongoose.model('Person', PersonSchema);
