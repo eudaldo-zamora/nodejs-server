@@ -11,3 +11,13 @@ exports.createPerson = async (req, res) => {
         res.status(500).send('An error has occurred');
     }
 }
+
+exports.findPersons = async (req, res) => {
+    try {
+        const persons = await Person.find();
+        res.send(persons);
+    } catch (error) {
+        console.log(error);   
+        res.status(500).send('An error has occurred');
+    }
+}
