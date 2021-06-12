@@ -42,3 +42,18 @@ exports.updatePerson = async (req, res) => {
         res.status(500).send('An error has occurred');
     }
 }
+
+exports.findPerson = async (req, res) => {
+    try {
+        let person = await Person.findById(req.params.id);
+
+        if (!person) {
+            res.status(400).send({msg: 'Person not found'});
+        }
+
+        res.send(person);
+    } catch (error) {
+        console.log(error);   
+        res.status(500).send('An error has occurred');
+    }
+}
