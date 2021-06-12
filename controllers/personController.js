@@ -1,3 +1,3 @@
 exports.createPerson = (req, res) => {
-    console.log('From create person ...');
+    console.log(req.body);
 }
