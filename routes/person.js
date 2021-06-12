@@ -6,5 +6,6 @@ router.post('/', personController.createPerson);
 router.get('/', personController.findPersons);
 router.put('/:id', personController.updatePerson);
 router.get('/:id', personController.findPerson);
+router.delete('/:id', personController.removePerson);
 
 module.exports = router;

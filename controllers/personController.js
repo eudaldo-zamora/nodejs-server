@@ -57,3 +57,20 @@ exports.findPerson = async (req, res) => {
         res.status(500).send('An error has occurred');
     }
 }
+
+exports.removePerson = async (req, res) => {
+    try {
+        let person = await Person.findById(req.params.id);
+
+        if (!person) {
+            res.status(400).send({msg: 'Person not found'});
+        }
+
+        await Person.findOneAndRemove({_id: req.params.id});
+
+        res.send({msg: 'Person successfully removed'});
+    } catch (error) {
+        console.log(error);   
+        res.status(500).send('An error has occurred');
+    }
+}
